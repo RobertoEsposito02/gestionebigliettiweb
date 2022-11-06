@@ -16,24 +16,25 @@ import it.prova.gestionebigliettiweb.utility.UtilityBigliettoForm;
 @WebServlet("/ExecuteUpdateBigliettoServlet")
 public class ExecuteUpdateBigliettoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public ExecuteUpdateBigliettoServlet() {
-        super();
-    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ExecuteUpdateBigliettoServlet() {
+		super();
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String provenienzaParam = request.getParameter("provenienza");
 		String destinazioneParam = request.getParameter("destinazione");
 		String prezzoParam = request.getParameter("prezzo");
 		String dataParam = request.getParameter("data");
 		String idBiglietto = request.getParameter("idBiglietto");
-		
+
 		if (!NumberUtils.isCreatable(idBiglietto)) {
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
 			request.getRequestDispatcher("/home.jsp").forward(request, response);
 			return;
 		}
-		
+
 		Biglietto input = UtilityBigliettoForm.createBigliettoFromParam(provenienzaParam, destinazioneParam, dataParam,
 				prezzoParam);
 		input.setId(Long.parseLong(idBiglietto));
@@ -44,7 +45,7 @@ public class ExecuteUpdateBigliettoServlet extends HttpServlet {
 			request.getRequestDispatcher("biglietto/insert.jsp").forward(request, response);
 			return;
 		}
-		
+
 		try {
 			MyServiceFactory.getBigliettoServiceInstance().aggiorna(input);
 			request.setAttribute("listAllAttribute", MyServiceFactory.getBigliettoServiceInstance().listAll());
@@ -55,7 +56,7 @@ public class ExecuteUpdateBigliettoServlet extends HttpServlet {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 			return;
 		}
-		
+
 		request.getRequestDispatcher("biglietto/results.jsp").forward(request, response);
 	}
 

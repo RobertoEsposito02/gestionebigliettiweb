@@ -12,16 +12,16 @@ import it.prova.gestionebigliettiweb.model.Biglietto;
 public class UtilityBigliettoForm {
 	public static Biglietto createBigliettoFromParam(String provenienzaParam, String destinazioneParam,
 			String dataParam, String prezzoParam) {
-		Biglietto result = new Biglietto(provenienzaParam,destinazioneParam);
+		Biglietto result = new Biglietto(provenienzaParam, destinazioneParam);
 
-		if(NumberUtils.isCreatable(prezzoParam)) {
+		if (NumberUtils.isCreatable(prezzoParam)) {
 			result.setPrezzo(Integer.parseInt(prezzoParam));
 		}
 		result.setData(parseDataFromString(dataParam));
-		
+
 		return result;
 	}
-	
+
 	public static Date parseDataFromString(String dataParam) {
 		if (StringUtils.isBlank(dataParam))
 			return null;
@@ -32,13 +32,10 @@ public class UtilityBigliettoForm {
 			return null;
 		}
 	}
-	
+
 	public static boolean validazioneFormBiglietto(Biglietto input) {
-		if(StringUtils.isBlank(input.getProvenienza()) || 
-		   StringUtils.isBlank(input.getDestinazione()) || 
-		   input.getPrezzo() == null ||
-		   input.getPrezzo() < 1 ||
-		   input.getData() == null) {
+		if (StringUtils.isBlank(input.getProvenienza()) || StringUtils.isBlank(input.getDestinazione())
+				|| input.getPrezzo() == null || input.getPrezzo() < 1 || input.getData() == null) {
 			return false;
 		}
 		return true;

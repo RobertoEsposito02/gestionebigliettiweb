@@ -14,18 +14,19 @@ import it.prova.gestionebigliettiweb.service.MyServiceFactory;
 @WebServlet("/ExecuteListBigliettoServlet")
 public class ExecuteListBigliettoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public ExecuteListBigliettoServlet() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ExecuteListBigliettoServlet() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
 			request.setAttribute("listAllAttribute", MyServiceFactory.getBigliettoServiceInstance().listAll());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("biglietto/results.jsp");
 		rd.forward(request, response);
 	}

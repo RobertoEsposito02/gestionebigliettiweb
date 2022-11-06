@@ -24,16 +24,16 @@ public class Biglietto {
 	private Date data;
 	@Column(name = "prezzo")
 	private Integer prezzo;
-	
+
 	public Biglietto() {
 	}
-	
+
 	public Biglietto(String provenienza, String destinazione) {
 		this.provenienza = provenienza;
 		this.destinazione = destinazione;
 	}
-	
-	public Biglietto(String provenienza,String destinazione,Date data,Integer prezzo) {
+
+	public Biglietto(String provenienza, String destinazione, Date data, Integer prezzo) {
 		this.provenienza = provenienza;
 		this.destinazione = destinazione;
 		this.data = data;

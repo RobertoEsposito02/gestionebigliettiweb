@@ -30,8 +30,8 @@
 					</div>
 		
 		<div class='card'>
-			<div class='card-header'>
-			     <h5>Inserisci nuovo elemento</h5> 
+			<div class='card-header bg-dark'>
+			     <h4 class="text-light">Modifica elemento</h4> 
 			</div>
 		    <div class='card-body'>
 		
@@ -65,7 +65,9 @@
 								
 								
 					<div class="col-12">
-						<button type="submit" name="submit" value="submit" id="submit" class="btn btn-dark">Conferma</button>
+						<button type="submit" name="submit" value="submit" id="submit" class="btn btn-outline-dark">Conferma</button>
+						<a href="ExecuteListBigliettoServlet" class='btn btn-outline-secondary' style='width:80px'>
+					        		<i class='fa fa-chevron-left'></i>Back</a>
 						<input type="hidden" name="idBiglietto" value="<%= biglietto.getId() %>"> 
 					</div>
 		

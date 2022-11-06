@@ -56,10 +56,10 @@
 			    
 			     <div class="shadow-lg p-5 mb-4 bg-dark rounded-5 ">
 				      <div class="container-fluid py-5">
-				        <h1 class="display-5 fw-bold text-light">Benvenuto alla Gestione Biglietti</h1>
+				        <h1 class="display-5 fw-bold text-warning">Benvenuto alla Gestione Biglietti</h1>
 				        <p class="col-md-8 fs-4 text-light">All'interno di questa pagina è possibile visualizzare la lista completa di biglietti, si ha inoltre la possibilità di inserirne uno nuovo, e/o di cercarne uno in particolare</p>
 				        <a class="btn btn-outline-light btn-lg" href="ExecuteListBigliettoServlet">Lista Elementi</a>
-				        <a class="btn btn-outline-light btn-lg" href="PrepareSearchArticoloServlet">Cerca Elementi</a>
+				        <a class="btn btn-outline-light btn-lg" href="PrepareSearchBigliettoServlet">Cerca Elementi</a>
 				      </div>
 			    </div>
 			    
@@ -94,6 +94,24 @@
 			      </div>
 			    
 			    </div>
+			    
+			    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 d-flex justify-content-around" > 
+			      <div class="shadow-sm feature col pop bg-light rounded-5">
+			        <div class="feature-icon bg-dark bg-gradient" style="margin-top: 7px">
+			          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  						<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 
+  						1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+					  </svg>
+			        </div>
+			        <h2>Cerca Elementi</h2>
+			        <p>Utilizzando questa funzione si avrà la possibilitò di ricercare uno specifico biglietto in base alla provenienza, destinazione, prezzo, e/o data.</p>
+			        <a href="PrepareSearchBigliettoServlet" class="icon-link" style="color: black; text-decoration:inherit; ">
+			          Vai alla funzionalità
+			          <svg class="bi" width="1em" height="2em"><use xlink:href="#chevron-right"/></svg>
+			        </a>
+			      </div>
+			    </div>
+			    
 			  </div>
 			  
 			</main>

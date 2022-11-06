@@ -6,10 +6,10 @@ import javax.persistence.EntityManager;
 
 import it.prova.gestionebigliettiweb.model.Biglietto;
 
-public class BigliettoDAOImpl implements BigliettoDAO{
+public class BigliettoDAOImpl implements BigliettoDAO {
 
 	private EntityManager entityManager;
-	
+
 	@Override
 	public List<Biglietto> list() throws Exception {
 		return entityManager.createQuery("from Biglietto", Biglietto.class).getResultList();
@@ -22,9 +22,9 @@ public class BigliettoDAOImpl implements BigliettoDAO{
 
 	@Override
 	public void update(Biglietto input) throws Exception {
-		if(input == null)
+		if (input == null)
 			throw new RuntimeException("input non valido");
-		
+
 		input = entityManager.merge(input);
 	}
 
@@ -37,7 +37,7 @@ public class BigliettoDAOImpl implements BigliettoDAO{
 
 	@Override
 	public void delete(Biglietto input) throws Exception {
-		if(input == null)
+		if (input == null)
 			throw new RuntimeException("input non valido");
 		entityManager.remove(input);
 	}
@@ -49,7 +49,18 @@ public class BigliettoDAOImpl implements BigliettoDAO{
 
 	@Override
 	public List<Biglietto> findByExample(Biglietto input) throws Exception {
-		return null;
+		String queryString = "from Biglietto where 1=1";
+
+		if (!(input.getProvenienza().isEmpty()))
+			queryString += " and provenienza = '" + input.getProvenienza() + "'";
+		if (!(input.getDestinazione().isEmpty()))
+			queryString += " and destinazione = '" + input.getDestinazione() + "'";
+		if (input.getPrezzo() != null)
+			queryString += " and prezzo = " + input.getPrezzo();
+		if (!(input.getData() == null))
+			queryString += " and data = '" + input.getData().toInstant() + "'";
+
+		return entityManager.createQuery(queryString, Biglietto.class).getResultList();
 	}
 
 }
