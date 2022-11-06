@@ -15,7 +15,7 @@ public interface BigliettoService {
 	
 	public void inserisci(Biglietto input) throws Exception;
 	
-	public void rimuovi(Biglietto input) throws Exception;
+	public void rimuovi(Long input) throws Exception;
 	
 	public void setBigliettoDao(BigliettoDAO bigliettoDAO);
 	

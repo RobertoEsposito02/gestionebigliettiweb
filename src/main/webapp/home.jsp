@@ -58,7 +58,7 @@
 				      <div class="container-fluid py-5">
 				        <h1 class="display-5 fw-bold text-light">Benvenuto alla Gestione Biglietti</h1>
 				        <p class="col-md-8 fs-4 text-light">All'interno di questa pagina è possibile visualizzare la lista completa di biglietti, si ha inoltre la possibilità di inserirne uno nuovo, e/o di cercarne uno in particolare</p>
-				        <a class="btn btn-outline-light btn-lg" href="ListArticoliServlet">Lista Elementi</a>
+				        <a class="btn btn-outline-light btn-lg" href="ExecuteListBigliettoServlet">Lista Elementi</a>
 				        <a class="btn btn-outline-light btn-lg" href="PrepareSearchArticoloServlet">Cerca Elementi</a>
 				      </div>
 			    </div>
@@ -87,7 +87,7 @@
 			        </div>
 			        <h2>Inserisci Nuovo</h2>
 			        <p>Utilizzando questa funzione si avrà la possibilità di inserire un nuovo biglietto, composto da un luogo di provenienza, di destinazione, una data e un prezzo </p>
-			        <a href="PrepareInsertArticoloServlet" class="icon-link" style="color: black; text-decoration: none;">
+			        <a href=PrepareInsertBigliettoServlet class="icon-link" style="color: black; text-decoration: none;">
 			          Vai alla funzionalità
 			          <svg class="bi" width="1em" height="2em"><use xlink:href="#chevron-right"/></svg>
 			        </a>

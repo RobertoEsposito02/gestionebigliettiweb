@@ -99,7 +99,7 @@ public class BigliettoServiceImpl implements BigliettoService{
 	}
 
 	@Override
-	public void rimuovi(Biglietto input) throws Exception {
+	public void rimuovi(Long input) throws Exception {
 		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
 		
 		try {
@@ -108,7 +108,7 @@ public class BigliettoServiceImpl implements BigliettoService{
 			
 			bigliettoDAO.setEntityManager(entityManager);
 			
-			bigliettoDAO.delete(input);
+			bigliettoDAO.delete(bigliettoDAO.findOne(input));
 			
 			entityManager.getTransaction().commit();
 		} catch (Exception e) {

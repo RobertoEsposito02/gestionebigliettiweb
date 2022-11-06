@@ -5,7 +5,7 @@
 <!-- Bootstrap CSS -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" >
 
- <!-- Favicons -->
+ <!-- Favicons -->	
 <link rel="icon" href="./assets/img/imgTest/vec.png"  type="image/png">
 <meta name="theme-color" content="#7952b3">
    

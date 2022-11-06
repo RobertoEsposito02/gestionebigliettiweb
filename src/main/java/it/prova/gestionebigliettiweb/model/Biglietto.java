@@ -23,12 +23,17 @@ public class Biglietto {
 	@Column(name = "data")
 	private Date data;
 	@Column(name = "prezzo")
-	private int prezzo;
+	private Integer prezzo;
 	
 	public Biglietto() {
 	}
 	
-	public Biglietto(String provenienza,String destinazione,Date data,int prezzo) {
+	public Biglietto(String provenienza, String destinazione) {
+		this.provenienza = provenienza;
+		this.destinazione = destinazione;
+	}
+	
+	public Biglietto(String provenienza,String destinazione,Date data,Integer prezzo) {
 		this.provenienza = provenienza;
 		this.destinazione = destinazione;
 		this.data = data;
@@ -67,11 +72,11 @@ public class Biglietto {
 		this.data = data;
 	}
 
-	public int getPrezzo() {
+	public Integer getPrezzo() {
 		return prezzo;
 	}
 
-	public void setPrezzo(int prezzo) {
+	public void setPrezzo(Integer prezzo) {
 		this.prezzo = prezzo;
 	}
 }
