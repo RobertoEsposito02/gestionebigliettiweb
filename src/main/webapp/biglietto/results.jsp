@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html class="h-100" >
 	<head>
@@ -43,21 +44,21 @@
 								</tr>
 							</thead>
 							
-							<% List<Biglietto> result = (List<Biglietto>)request.getAttribute("listAllAttribute"); 
-							   for(Biglietto biglietto : result){
-							%>
+							<c:forEach items="${listAllAttribute}" var="item">
+							
 							<tbody>
 							<tr>
-								<td scope="row"><%=biglietto.getProvenienza() %></td>
-								<td><%=biglietto.getDestinazione() %></td>
+								<td scope="row">${item.provenienza}</td>
+								<td>${item.destinazione}</td>
 								<td>
-								 	<a class="btn btn-outline-info btn-sm" href="ExecuteVisualizzaBigliettoServlet?idBiglietto=<%=biglietto.getId()  %>" >Dettaglio</a>
-									<a class="btn btn-outline-secondary btn-sm" href="PrepareUpdateBigliettoServlet?idBiglietto=<%=biglietto.getId()  %>" >Aggiorna</a>
-									<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteBigliettoServlet?idBiglietto=<%=biglietto.getId()  %>" >Elimina</a>
+								 	<a class="btn btn-outline-info btn-sm" href="ExecuteVisualizzaBigliettoServlet?idBiglietto=${item.id}">Dettaglio</a>
+									<a class="btn btn-outline-secondary btn-sm" href="PrepareUpdateBigliettoServlet?idBiglietto=${item.id}" >Aggiorna</a>
+									<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteBigliettoServlet?idBiglietto=${item.id}" >Elimina</a>
 								</td>
 							</tr>
 							</tbody>
-							<%} %>
+							
+							</c:forEach>
 						</table>
 					</div>
 					</div>
@@ -65,7 +66,10 @@
 					        <a href="home.jsp" class='btn btn-outline-secondary' style='width:80px'>
 					            <i class='fa fa-chevron-left'></i> Back
 					        </a>
-					    </div>
+					        <a href="PrepareInsertBigliettoServlet" class='btn btn-outline-dark' style='width:100px'>
+					            <i class='fa fa-chevron-left'></i> Add new
+					        </a>
+					</div>
 				</div>
 			</div>
 		</main>

@@ -6,6 +6,10 @@
 	 	<style>
 	 		.pop{transition: 1s;}
 			.pop:hover{transform:scale(1.05) }
+			.pd{padding-top: 70px}
+			.bgimg{background-image: url('nott.jpg');
+				   background-position: 50%;
+				   height: 40%;}
 		</style>
 	 
 	 	<!-- Common imports in pages -->
@@ -48,20 +52,20 @@
 			<!-- Begin page content -->
 			<main class="flex-shrink-0">
 			  <div class="container">
-			  
+			  	
 			  	<div class="alert alert-danger alert-dismissible fade show ${errorMessage==null?'d-none':'' }" role="alert">
 				  ${errorMessage}
 				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
 				</div>
 			    
-			     <div class="shadow-lg p-5 mb-4 bg-dark rounded-5 ">
-				      <div class="container-fluid py-5">
+			     <div class="shadow-lg p-5 mb-4 bg-dark rounded-5" >
+				      <div class="container-fluid py-5" >
 				        <h1 class="display-5 fw-bold text-warning">Benvenuto alla Gestione Biglietti</h1>
 				        <p class="col-md-8 fs-4 text-light">All'interno di questa pagina è possibile visualizzare la lista completa di biglietti, si ha inoltre la possibilità di inserirne uno nuovo, e/o di cercarne uno in particolare</p>
 				        <a class="btn btn-outline-light btn-lg" href="ExecuteListBigliettoServlet">Lista Elementi</a>
 				        <a class="btn btn-outline-light btn-lg" href="PrepareSearchBigliettoServlet">Cerca Elementi</a>
 				      </div>
-			    </div>
+			     </div>
 			    
 			  </div>
 			  

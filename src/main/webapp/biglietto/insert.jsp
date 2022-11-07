@@ -2,6 +2,8 @@
 <%@page import="it.prova.gestionebigliettiweb.model.Biglietto"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt" %>
 <!DOCTYPE html>
 <html  class="h-100" >
 	<head>
@@ -35,26 +37,27 @@
 		    <div class='card-body'>
 				<h6 class="card-title">I campi con <span class="text-danger">*</span> sono obbligatori</h6>
 					<form method="post" action="ExecuteInsertBigliettoServlet" class="row g-3" novalidate="novalidate">		
-						<% Biglietto biglietto = (Biglietto)request.getAttribute("nuovoBigliettoAttribute"); %>
+						
 							<div class="col-md-6">
 								<label for="provenienza" class="form-label">Provenienza <span class="text-danger">*</span></label>
 								<input type="text" name="provenienza" id="provenienza" class="form-control" placeholder="Inserire la provenienza"  
-												value="<%=biglietto.getProvenienza()!=null?biglietto.getProvenienza():"" %>" required>
+												value="${nuovoBigliettoAttribute.provenienza}" required>
 							</div>	
 							<div class="col-md-6">
 								<label for="destinazione" class="form-label">Destinazione <span class="text-danger">*</span></label>
 								<input type="text" name="destinazione" id="destinazione" class="form-control" placeholder="Inserire la destinazione"  
-												value="<%=biglietto.getDestinazione()!=null?biglietto.getDestinazione():"" %>" required>
+												value="${nuovoBigliettoAttribute.destinazione}" required>
 							</div>
 							<div class="col-md-6">
 								<label for="prezzo" class="form-label">Prezzo <span class="text-danger">*</span></label>
 								<input type="number" class="form-control" name="prezzo" id="prezzo" placeholder="Inserire prezzo" 
-								value="<%=biglietto.getPrezzo()!=null?biglietto.getPrezzo():"" %>" required>
+								value="${nuovoBigliettoAttribute.prezzo}"  required>
 							</div>		
+							<fmt:formatDate value="${nuovoBigliettoAttribute.data}" pattern="yyyy-MM-dd" var="parsedData"/>
 							<div class="col-md-3">
 								<label for="data" class="form-label">Data di Arrivo<span class="text-danger">*</span></label>
 								<input class="form-control"  name="data" id="data" type="date" placeholder="dd/MM/yy" title="formato : gg/mm/aaaa" 
-								value="<%=biglietto.getData()!=null? new SimpleDateFormat("yyyy-MM-dd").format(biglietto.getData()):""  %>" required/>
+								value="${parsedData}" required/>
 							</div>		
 							<div class="col-12">
 								<button type="submit" name="submit" value="submit" id="submit" class="btn btn-dark">Conferma</button>

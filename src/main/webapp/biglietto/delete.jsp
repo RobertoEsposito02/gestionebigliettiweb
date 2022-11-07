@@ -2,6 +2,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt" %>
 <!DOCTYPE html>
 <html class="h-100" >
 	<head>
@@ -29,13 +31,13 @@
 									</tr>
 								</thead>
 								
-								<% Biglietto result = (Biglietto)request.getAttribute("bigliettoDeleteAttribute");%>
+
 								<tbody>
 									<tr>
-										<td><%=result.getProvenienza() %></td>
-										<td><%=result.getDestinazione() %></td>
-										<td><%=result.getPrezzo() %></td>
-										<td><%=result.getData() %></td>	
+										<td>${bigliettoDeleteAttribute.provenienza} </td>
+										<td>${bigliettoDeleteAttribute.destinazione}</td>
+										<td>${bigliettoDeleteAttribute.prezzo}</td>
+										<td><fmt:formatDate value="${bigliettoDeleteAttribute.data}"/></td>
 									</tr>
 								</tbody>
 							</table>
@@ -51,7 +53,7 @@
 							<div class="col-sm-1" >
 								<form method="post" action="ExecuteDeleteBigliettoServlet">
 									<input type="submit" value="conferma" class="btn btn-outline-danger">
-									<input type="hidden" name="idBiglietto" value="<%=result.getId() %>">
+									<input type="hidden" name="idBiglietto" value="${bigliettoDeleteAttribute.getId()}">
 								</form>
 							</div>
 						</div>

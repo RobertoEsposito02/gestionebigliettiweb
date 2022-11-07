@@ -40,9 +40,9 @@ public class ExecuteUpdateBigliettoServlet extends HttpServlet {
 		input.setId(Long.parseLong(idBiglietto));
 
 		if (!UtilityBigliettoForm.validazioneFormBiglietto(input)) {
-			request.setAttribute("nuovoBigliettoAttribute", input);
+			request.setAttribute("bigliettoUpdateAttribute", input);
 			request.setAttribute("errorMessage", "Attenzione sono presenti errori di validazione");
-			request.getRequestDispatcher("biglietto/insert.jsp").forward(request, response);
+			request.getRequestDispatcher("biglietto/update.jsp").forward(request, response);
 			return;
 		}
 

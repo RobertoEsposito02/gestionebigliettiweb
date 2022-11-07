@@ -1,6 +1,8 @@
 <%@page import="it.prova.gestionebigliettiweb.model.Biglietto"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt" %>
 <!DOCTYPE html>
 <html class="h-100">
 	<head>
@@ -28,13 +30,13 @@
 									</tr>
 								</thead>
 								
-								<% Biglietto result = (Biglietto)request.getAttribute("BigliettoDaCaricareAttribute");%>
+							
 								<tbody>
 									<tr>
-										<td><%=result.getProvenienza() %></td>
-										<td><%=result.getDestinazione() %></td>
-										<td><%=result.getPrezzo() %></td>
-										<td><%=result.getData() %></td>	
+										<td>${BigliettoDaCaricareAttribute.provenienza}</td>
+										<td>${BigliettoDaCaricareAttribute.destinazione}</td>
+										<td>${BigliettoDaCaricareAttribute.prezzo}</td>
+										<td><fmt:formatDate value="${BigliettoDaCaricareAttribute.data}" /></td>	
 									</tr>
 								</tbody>
 							</table>
