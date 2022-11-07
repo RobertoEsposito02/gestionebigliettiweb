@@ -51,7 +51,7 @@
 							</div>
 						
 							<div class="col-sm-1" >
-								<form method="post" action="ExecuteDeleteBigliettoServlet">
+								<form method="post" action="${pageContext.request.contextPath }/admin/ExecuteDeleteBigliettoServlet">
 									<input type="submit" value="conferma" class="btn btn-outline-danger">
 									<input type="hidden" name="idBiglietto" value="${bigliettoDeleteAttribute.getId()}">
 								</form>

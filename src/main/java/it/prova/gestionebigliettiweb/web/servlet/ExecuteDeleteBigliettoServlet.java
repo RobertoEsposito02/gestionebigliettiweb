@@ -11,7 +11,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 import it.prova.gestionebigliettiweb.service.MyServiceFactory;
 
-@WebServlet("/ExecuteDeleteBigliettoServlet")
+@WebServlet("/admin/ExecuteDeleteBigliettoServlet")
 public class ExecuteDeleteBigliettoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,7 @@ public class ExecuteDeleteBigliettoServlet extends HttpServlet {
 			return;
 		}
 
-		request.getRequestDispatcher("biglietto/results.jsp").forward(request, response);
+		request.getRequestDispatcher("/biglietto/results.jsp").forward(request, response);
 	}
 
 }

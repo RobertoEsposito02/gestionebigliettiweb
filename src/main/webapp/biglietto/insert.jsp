@@ -36,7 +36,7 @@
 			</div>
 		    <div class='card-body'>
 				<h6 class="card-title">I campi con <span class="text-danger">*</span> sono obbligatori</h6>
-					<form method="post" action="ExecuteInsertBigliettoServlet" class="row g-3" novalidate="novalidate">		
+					<form method="post" action="${pageContext.request.contextPath }/admin/ExecuteInsertBigliettoServlet" class="row g-3" novalidate="novalidate">		
 						
 							<div class="col-md-6">
 								<label for="provenienza" class="form-label">Provenienza <span class="text-danger">*</span></label>
@@ -61,7 +61,7 @@
 							</div>		
 							<div class="col-12">
 								<button type="submit" name="submit" value="submit" id="submit" class="btn btn-dark">Conferma</button>
-								<a href="home.jsp" class='btn btn-outline-secondary' style='width:80px'>
+								<a href="${pageContext.request.contextPath }/home.jsp" class='btn btn-outline-secondary' style='width:80px'>
 					        		<i class='fa fa-chevron-left'></i>Back</a>
 							</div>
 						</form>

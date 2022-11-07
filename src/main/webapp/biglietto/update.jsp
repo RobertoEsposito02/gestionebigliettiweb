@@ -37,7 +37,7 @@
 			</div>
 		    <div class='card-body'>
 		
-			<form method="post" action="ExecuteUpdateBigliettoServlet" class="row g-3" novalidate="novalidate">
+			<form method="post" action="${pageContext.request.contextPath }/admin/ExecuteUpdateBigliettoServlet" class="row g-3" novalidate="novalidate">
 							
 					<div class="col-md-6">
 						<label for="provenienza" class="form-label">Provenienza</label>
@@ -67,7 +67,7 @@
 								
 					<div class="col-12">
 						<button type="submit" name="submit" value="submit" id="submit" class="btn btn-outline-dark">Conferma</button>
-						<a href="ExecuteListBigliettoServlet" class='btn btn-outline-secondary' style='width:80px'>
+						<a href="${pageContext.request.contextPath }/ExecuteListBigliettoServlet" class='btn btn-outline-secondary' style='width:80px'>
 					        		<i class='fa fa-chevron-left'></i>Back</a>
 						<input type="hidden" name="idBiglietto" value="${bigliettoUpdateAttribute.id}"> 
 					</div>

@@ -1,3 +1,4 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!doctype html>
 <html lang="it" class="h-100" >
 	 <head>
@@ -87,21 +88,6 @@
 			      
 			      <div class="shadow-sm feature col pop bg-light rounded-5">
 			        <div class="feature-icon bg-dark bg-gradient" style="margin-top: 7px">
-			          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
-			        </div>
-			        <h2>Inserisci Nuovo</h2>
-			        <p>Utilizzando questa funzione si avrà la possibilità di inserire un nuovo biglietto, composto da un luogo di provenienza, di destinazione, una data e un prezzo </p>
-			        <a href=PrepareInsertBigliettoServlet class="icon-link" style="color: black; text-decoration: none;">
-			          Vai alla funzionalità
-			          <svg class="bi" width="1em" height="2em"><use xlink:href="#chevron-right"/></svg>
-			        </a>
-			      </div>
-			    
-			    </div>
-			    
-			    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 d-flex justify-content-around" > 
-			      <div class="shadow-sm feature col pop bg-light rounded-5">
-			        <div class="feature-icon bg-dark bg-gradient" style="margin-top: 7px">
 			          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
   						<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 
   						1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -114,7 +100,26 @@
 			          <svg class="bi" width="1em" height="2em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>
+			    
 			    </div>
+			    
+			    <c:forEach items="${userInfo.ruoli}" var="item">
+			    <c:if test= "${item.codice == 'ADMIN_ROLE'}" >
+			    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 d-flex justify-content-around" >
+			      <div class="shadow-sm feature col pop bg-light rounded-5">
+			        <div class="feature-icon bg-dark bg-gradient" style="margin-top: 7px">
+			          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
+			        </div>
+			        <h2>Inserisci Nuovo</h2>
+			        <p>Utilizzando questa funzione si avrà la possibilità di inserire un nuovo biglietto, composto da un luogo di provenienza, di destinazione, una data e un prezzo </p>
+			        <a href="${pageContext.request.contextPath }/admin/PrepareInsertBigliettoServlet" class="icon-link" style="color: black; text-decoration: none;">
+			          Vai alla funzionalità
+			          <svg class="bi" width="1em" height="2em"><use xlink:href="#chevron-right"/></svg>
+			        </a>
+			      </div>    
+			    </div>
+			    </c:if>
+			    </c:forEach>
 			    
 			  </div>
 			  

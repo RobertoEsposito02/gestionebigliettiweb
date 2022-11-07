@@ -13,7 +13,7 @@
 	<body class="d-flex flex-column h-100">
 		<jsp:include page="../navbar.jsp"></jsp:include>
 	
-	<main class="flex-shrink-0">
+	<main class="flex-shrink-0" style="margin-bottom: 50px;">
 		<div class="container">
 			<div class="alert alert-success alert-dismissible fade show  ${successMessage==null?'d-none':'' }" role="alert">
 				${successMessage}
@@ -51,9 +51,13 @@
 								<td scope="row">${item.provenienza}</td>
 								<td>${item.destinazione}</td>
 								<td>
-								 	<a class="btn btn-outline-info btn-sm" href="ExecuteVisualizzaBigliettoServlet?idBiglietto=${item.id}">Dettaglio</a>
-									<a class="btn btn-outline-secondary btn-sm" href="PrepareUpdateBigliettoServlet?idBiglietto=${item.id}" >Aggiorna</a>
-									<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteBigliettoServlet?idBiglietto=${item.id}" >Elimina</a>
+								 	<a class="btn btn-outline-info btn-sm" href="${pageContext.request.contextPath }/ExecuteVisualizzaBigliettoServlet?idBiglietto=${item.id}">Dettaglio</a>
+									<c:forEach items="${userInfo.ruoli}" var="user">
+			    					<c:if test= "${user.codice == 'ADMIN_ROLE'}" >
+									<a class="btn btn-outline-secondary btn-sm" href="${pageContext.request.contextPath }/admin/PrepareUpdateBigliettoServlet?idBiglietto=${item.id}" >Aggiorna</a>
+									<a class="btn btn-outline-danger btn-sm" href="${pageContext.request.contextPath }/admin/PrepareDeleteBigliettoServlet?idBiglietto=${item.id}" >Elimina</a>
+									</c:if>
+			    					</c:forEach> 
 								</td>
 							</tr>
 							</tbody>
@@ -63,12 +67,17 @@
 					</div>
 					</div>
 					<div class='card-footer'>
-					        <a href="home.jsp" class='btn btn-outline-secondary' style='width:80px'>
+					        <a href="${pageContext.request.contextPath }/home.jsp" class='btn btn-outline-secondary' style='width:80px'>
 					            <i class='fa fa-chevron-left'></i> Back
 					        </a>
-					        <a href="PrepareInsertBigliettoServlet" class='btn btn-outline-dark' style='width:100px'>
+					<c:forEach items="${userInfo.ruoli}" var="item">
+			    	<c:if test= "${item.codice == 'ADMIN_ROLE'}" >
+					        <a href="${pageContext.request.contextPath }/admin/PrepareInsertBigliettoServlet" class='btn btn-outline-dark' style='width:100px'>
 					            <i class='fa fa-chevron-left'></i> Add new
 					        </a>
+					</c:if>
+			    	</c:forEach>   
+					 
 					</div>
 				</div>
 			</div>

@@ -11,7 +11,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 import it.prova.gestionebigliettiweb.service.MyServiceFactory;
 
-@WebServlet("/PrepareUpdateBigliettoServlet")
+@WebServlet("/admin/PrepareUpdateBigliettoServlet")
 public class PrepareUpdateBigliettoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -39,6 +39,6 @@ public class PrepareUpdateBigliettoServlet extends HttpServlet {
 			return;
 		}
 
-		request.getRequestDispatcher("biglietto/update.jsp").forward(request, response);
+		request.getRequestDispatcher("/biglietto/update.jsp").forward(request, response);
 	}
 }

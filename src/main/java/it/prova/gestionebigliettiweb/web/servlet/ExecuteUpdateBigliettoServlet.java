@@ -13,7 +13,7 @@ import it.prova.gestionebigliettiweb.model.Biglietto;
 import it.prova.gestionebigliettiweb.service.MyServiceFactory;
 import it.prova.gestionebigliettiweb.utility.UtilityBigliettoForm;
 
-@WebServlet("/ExecuteUpdateBigliettoServlet")
+@WebServlet("/admin/ExecuteUpdateBigliettoServlet")
 public class ExecuteUpdateBigliettoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -42,7 +42,7 @@ public class ExecuteUpdateBigliettoServlet extends HttpServlet {
 		if (!UtilityBigliettoForm.validazioneFormBiglietto(input)) {
 			request.setAttribute("bigliettoUpdateAttribute", input);
 			request.setAttribute("errorMessage", "Attenzione sono presenti errori di validazione");
-			request.getRequestDispatcher("biglietto/update.jsp").forward(request, response);
+			request.getRequestDispatcher("/biglietto/update.jsp").forward(request, response);
 			return;
 		}
 
@@ -53,11 +53,11 @@ public class ExecuteUpdateBigliettoServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione sono presenti errori di validazione");
-			request.getRequestDispatcher("home.jsp").forward(request, response);
+			request.getRequestDispatcher("/home.jsp").forward(request, response);
 			return;
 		}
 
-		request.getRequestDispatcher("biglietto/results.jsp").forward(request, response);
+		request.getRequestDispatcher("/biglietto/results.jsp").forward(request, response);
 	}
 
 }

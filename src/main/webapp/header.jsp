@@ -3,10 +3,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap CSS -->
-<link href="assets/css/bootstrap.min.css" rel="stylesheet" >
+<link href="<%= request.getContextPath()%>/assets/css/bootstrap.min.css" rel="stylesheet" >
 
  <!-- Favicons -->	
-<link rel="icon" href="./assets/img/imgTest/vec.png"  type="image/png">
+<link rel="icon" href="<%= request.getContextPath()%>/assets/img/imgTest/vec.png"  type="image/png">
 <meta name="theme-color" content="#7952b3">
    
    
@@ -28,12 +28,12 @@
 
 
 <!-- Custom styles for this template -->
-<link href="assets/css/sticky-footer-navbar.css" rel="stylesheet">
+<link href="<%= request.getContextPath()%>/assets/css/sticky-footer-navbar.css" rel="stylesheet">
 
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="assets/js/bootstrap.bundle.min.js" ></script>
+<script src="<%= request.getContextPath()%>/assets/js/bootstrap.bundle.min.js" ></script>
 
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--
